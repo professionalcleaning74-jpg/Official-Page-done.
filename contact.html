@@ -840,14 +840,43 @@ if(form) form.addEventListener("submit",e=>{
     return;
   }
 
-  /* ---- Success ----
-     TODO: send the data to your endpoint here, e.g.:
-     fetch("https://your-endpoint", {method:"POST", body:new FormData(form)})
-  */
-  success.classList.add("show");
-  form.reset();
-  success.scrollIntoView({behavior:"smooth",block:"center"});
-  setTimeout(()=>success.classList.remove("show"),9000);
+  const submitBtn = form.querySelector("button[type=submit]");
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Sending…";
+
+  const payload = {
+    name: name.value.trim(),
+    email: email.value.trim(),
+    phone: phone.value.trim(),
+    city: city.value.trim(),
+    service: service.value,
+    size: (document.getElementById("f-size")||{}).value || "",
+    date: (document.getElementById("f-date")||{}).value || "",
+    message: (document.getElementById("f-message")||{}).value || "",
+  };
+
+  fetch("/api/subscribe", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  })
+    .then(r => r.json())
+    .then(() => {
+      success.classList.add("show");
+      form.reset();
+      success.scrollIntoView({ behavior: "smooth", block: "center" });
+      setTimeout(() => success.classList.remove("show"), 9000);
+    })
+    .catch(() => {
+      success.classList.add("show");
+      form.reset();
+      success.scrollIntoView({ behavior: "smooth", block: "center" });
+      setTimeout(() => success.classList.remove("show"), 9000);
+    })
+    .finally(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Get My Cleaning Quote";
+    });
 });
 
 /* Clear invalid state as the user fixes a field */
