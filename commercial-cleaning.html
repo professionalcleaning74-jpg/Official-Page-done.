@@ -391,6 +391,7 @@ footer.site-footer{background:var(--ink);color:#aebec1;padding:64px 0 0}
 .foot-contact .ci{display:flex;align-items:center;gap:9px;margin-bottom:12px;font-size:.92rem}
 .foot-contact .ci svg{width:16px;height:16px;color:var(--light-blue)}
 .foot-contact .btn{margin-top:8px}
+.foot-bottom a{color:var(--light-blue);text-decoration:underline;text-underline-offset:3px;font-weight:600}.foot-bottom a:hover{color:#fff}
 .foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:22px 0;font-size:.85rem}
 .foot-bottom a:hover{color:var(--light-blue)}
 
@@ -432,8 +433,8 @@ footer.site-footer{background:var(--ink);color:#aebec1;padding:64px 0 0}
   .form-grid{grid-template-columns:1fr}
   .qc-row{grid-template-columns:1fr}
   .foot-grid{grid-template-columns:1fr}
-  .mobile-bar{display:flex}
-  body{padding-bottom:74px}
+  .mobile-bar{display:none}
+  body{padding-bottom:0}
   section{scroll-margin-top:80px}
 }
 @media (max-width:640px){.nav-cta .btn{display:none}}
@@ -489,11 +490,16 @@ footer.site-footer{background:var(--ink);color:#aebec1;padding:64px 0 0}
 .svc-content a{color:var(--blue);font-weight:600}
 .svc-content a:hover{text-decoration:underline}
 
-/* floating Call Now (follows scroll on desktop) */
-.call-fab{position:fixed;right:22px;bottom:26px;z-index:1200;display:inline-flex;align-items:center;gap:9px;background:var(--blue);color:#fff;font-family:var(--display);font-weight:700;font-size:.95rem;padding:13px 20px;border-radius:999px;box-shadow:0 12px 30px -8px rgba(10,122,249,.55);transition:transform .2s,box-shadow .2s;text-decoration:none}
-.call-fab:hover{transform:translateY(-2px);box-shadow:0 16px 38px -8px rgba(10,122,249,.7);color:#fff}
-.call-fab svg{width:19px;height:19px}
-@media (max-width:720px){.call-fab{bottom:88px;right:14px;padding:11px 17px;font-size:.9rem;box-shadow:0 8px 22px -6px rgba(10,122,249,.6)}}
+/* floating contact buttons (follow scroll) */
+.fab-group{position:fixed;right:22px;bottom:26px;z-index:1200;display:flex;gap:10px;align-items:center}
+.fab-btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:.95rem;padding:13px 20px;border-radius:999px;text-decoration:none;box-shadow:0 12px 30px -8px rgba(8,16,16,.45);transition:transform .2s,box-shadow .2s}
+.fab-btn:hover{transform:translateY(-2px)}
+.fab-btn svg{width:19px;height:19px}
+.fab-call{background:var(--blue);color:#fff}
+.fab-call:hover{color:#fff;box-shadow:0 16px 38px -8px rgba(10,122,249,.7)}
+.fab-text{background:#fff;color:var(--blue);border:1.5px solid var(--blue)}
+.fab-text:hover{color:var(--blue);background:#fff}
+@media (max-width:720px){.fab-group{bottom:20px;right:14px;gap:8px}.fab-btn{padding:11px 15px;font-size:.86rem;gap:6px}.fab-btn svg{width:17px;height:17px}}
 </style>
 </head>
 
@@ -694,12 +700,15 @@ footer.site-footer{background:var(--ink);color:#aebec1;padding:64px 0 0}
 
     <div class="foot-bottom">
       <span>© <span id="year"></span> The Professional Cleaners Inc. All rights reserved.</span>
-      <a href="#" id="privacyLink">Privacy Policy</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
     </div>
   </div>
 </footer>
 
-<a href="tel:+16476202963" class="call-fab call-link" aria-label="Call Now"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>Call Now</span></a>
+<div class="fab-group">
+<a href="sms:+16476202963" class="fab-btn fab-text" aria-label="Text Now"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Text Now</span></a>
+<a href="tel:+16476202963" class="fab-btn fab-call call-link" aria-label="Call Now"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>Call Now</span></a>
+</div>
 
 <div class="mobile-bar">
   <a href="#" class="btn btn--ghost call-link">
@@ -825,12 +834,6 @@ if(form) form.addEventListener("submit",e=>{
 /* Clear invalid state as the user fixes a field */
 if(form) form.querySelectorAll("input,select").forEach(el=>{
   el.addEventListener("input",()=>el.closest(".field")?.classList.remove("invalid"));
-});
-
-/* Privacy link placeholder */
-document.getElementById("privacyLink").addEventListener("click",e=>{
-  e.preventDefault();
-  alert("Privacy Policy — replace this link with your policy page URL.");
 });
 </script>
 </body>

@@ -392,6 +392,7 @@ footer.site-footer{background:var(--ink);color:#aebec1;padding:64px 0 0}
 .foot-contact .ci{display:flex;align-items:center;gap:9px;margin-bottom:12px;font-size:.92rem}
 .foot-contact .ci svg{width:16px;height:16px;color:var(--light-blue)}
 .foot-contact .btn{margin-top:8px}
+.foot-bottom a{color:var(--light-blue);text-decoration:underline;text-underline-offset:3px;font-weight:600}.foot-bottom a:hover{color:#fff}
 .foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:22px 0;font-size:.85rem}
 .foot-bottom a:hover{color:var(--light-blue)}
 
@@ -556,7 +557,7 @@ footer.site-footer{background:var(--ink);color:#aebec1;padding:64px 0 0}
       <div>
         <span class="eyebrow">Commercial Cleaning · Greater Toronto Area</span>
         <h1>Commercial Cleaning <span class="hl">for Offices, Factories &amp; Gyms</span></h1>
-        <p class="sub">Reliable, detail-focused commercial cleaning for businesses across the Greater Toronto Area. We handle large spaces and recurring contracts — we're proudly trusted by commercial clients throughout the GTA.</p>
+        <p class="sub">Reliable, detail-focused commercial cleaning for businesses across the Greater Toronto Area. We handle large spaces and recurring contracts — and we're trusted by commercial clients throughout the GTA.</p>
 
         <div class="hero-actions">
           <a href="contact.html" class="btn btn--primary btn--lg">Request a Free Quote</a>
@@ -907,7 +908,7 @@ footer.site-footer{background:var(--ink);color:#aebec1;padding:64px 0 0}
 
     <div class="foot-bottom">
       <span>© <span id="year"></span> The Professional Cleaners Inc. All rights reserved.</span>
-      <a href="#" id="privacyLink">Privacy Policy</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
     </div>
   </div>
 </footer>
@@ -1041,12 +1042,6 @@ if(form) form.addEventListener("submit",e=>{
 /* Clear invalid state as the user fixes a field */
 if(form) form.querySelectorAll("input,select").forEach(el=>{
   el.addEventListener("input",()=>el.closest(".field")?.classList.remove("invalid"));
-});
-
-/* Privacy link placeholder */
-document.getElementById("privacyLink").addEventListener("click",e=>{
-  e.preventDefault();
-  alert("Privacy Policy — replace this link with your policy page URL.");
 });
 </script>
 </body>
